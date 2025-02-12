@@ -17,7 +17,7 @@ Resources:
     Properties:
       VpcId: !Ref clvpc
       CidrBlock: '172.16.1.0/24'
-      AvailabilityZone: !Select [0, !GetAzs '']
+      AvailabilityZone: !Select [0, !GetAZs '']
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
@@ -28,7 +28,7 @@ Resources:
     Properties:
       VpcId: !Ref clvpc
       CidrBlock: '172.16.2.0/24'
-      AvailabilityZone: !Select [0, !GetAzs '']
+      AvailabilityZone: !Select [0, !GetAZs '']
       Tags:
         - Key: Name
           Value: AppPrivateSubnetA
@@ -38,7 +38,7 @@ Resources:
     Properties:
       VpcId: !Ref clvpc
       CidrBlock: '172.16.3.0/24'
-      AvailabilityZone: !Select [0, !GetAzs '']
+      AvailabilityZone: !Select [0, !GetAZs '']
       Tags:
         - Key: Name
           Value: DataPrivateSubnetA        
