@@ -12,33 +12,33 @@ Resources:
         - Key: Name
           Value: clvpc
 
-  clsubneta:
+  ClSubneta:
     Type: 'AWS::EC2::Subnet'
     Properties:
       VpcId: !Ref clvpc
       CidrBlock: '172.16.1.0/24'
       AvailabilityZone: !Select [0, !GetAzs '']
-      MapPublicIpOnLaunch: 'true'
+      MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: clsubneta
+          Value: ClSubnetA
 
-    AppPrivateSubnetA:
-      type: 'AWS:EC2::SUBNET'
-      Properties:
-        VPcId: !Ref clvpc
-        CidrBlock: '172.16.2.0/24'
-        AvailabitiyZone: !Select [0, !GetAzs '']
-         Tags:
-          - Key: Name
-            Value: AppPrivateSubnetA
-
-    DataPrivateSubnetA:
+  AppPrivateSubnetA:
     Type: 'AWS::EC2::Subnet'
-    Prperties:
-    VPcId: !Ref clvpc
-    CidrBlock: '172.16.3.0/24'
-    AvailabilityZone: !Select [0, !GetAzs '']
-    Tags:
-    - Key: Name
-      Value: DataPrivateSubnetA        
+    Properties:
+      VpcId: !Ref clvpc
+      CidrBlock: '172.16.2.0/24'
+      AvailabilityZone: !Select [0, !GetAzs '']
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnetA
+
+  DataPrivateSubnetA:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref clvpc
+      CidrBlock: '172.16.3.0/24'
+      AvailabilityZone: !Select [0, !GetAzs '']
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnetA        
